@@ -5,6 +5,9 @@ import fitz
 from rest_framework.response import Response
 from rest_framework import generics, status
 from .serializers import QuestionSerializer
+from decouple import config
+
+api_key=config('OPENAI_API_KEY')
 
 
 URL = "https://api.openai.com/v1/chat/completions"
@@ -61,12 +64,14 @@ class Answer(generics.CreateAPIView):
 
         headers = {
             "Content-Type": "application/json",
-            "Authorization": f"Bearer {''}"
+            "Authorization": f"Bearer {api_key}"
         }
 
         response = requests.post(URL, headers=headers, json=payload, stream=False)
+        print(response.content.decode('utf-8'))
         response_json = json.loads(response.content.decode('utf-8'))
         answer = response_json["choices"][0]["message"]["content"]
+
 
         serializer = QuestionSerializer(data={'question': question, 'respuesta': answer})
         if serializer.is_valid():

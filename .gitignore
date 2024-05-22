@@ -1,0 +1,4 @@
+../venv
+Front
+bd.sqlite3
+.env

@@ -24,3 +24,5 @@ pip install -r requirements.txt
 correr el proyecto de django 
 
 python manage.py runserver
+
+Crear un archivo .env donde poner la token de openai
