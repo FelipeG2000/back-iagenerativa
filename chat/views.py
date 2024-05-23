@@ -52,14 +52,13 @@ class Answer(generics.CreateAPIView):
             "model": "gpt-3.5-turbo",
             "messages": [
                 {"role": "system", "content": "You are an assistan that helps with information extraction."},
-                {"role": "user", "content": f"Context:{texto1}\n\n{texto2 if texto2 else '-'}\n\n{texto3} \n\nQuestion: {question}?"}],
+                {"role": "user", "content": f"Context:{texto1}\n\n{texto2}\n\n{texto3} \n\nQuestion: {question}?"}],
             "temperature": 1.0,
             "top_p": 1.0,
             "n": 1,
             "stream": False,
             "presence_penalty": 0,
             "frequency_penalty": 0,
-
         }
 
         headers = {
