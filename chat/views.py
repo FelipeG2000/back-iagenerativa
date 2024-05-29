@@ -44,9 +44,9 @@ class Answer(generics.CreateAPIView):
     serializer_class = QuestionSerializer
 
     def post(self, request, *args, **kwargs):
-        texto1 = extract_text('/home/felipe/Documentos/TalentoB/generativeAI/chat/root/El_lobo_solitario.docx')
-        texto2 = extract_text('/home/felipe/Documentos/TalentoB/generativeAI/chat/root/La_inteligencia_artificial.pdf')
-        texto3 = extract_text('/home/felipe/Documentos/TalentoB/generativeAI/chat/root/La_liebre_y_la_tortuga.pdf')
+        texto1 = extract_text('/home/ubuntu/production/back-iagenerativa/chat/root/El_lobo_solitario.docx')
+        texto2 = extract_text('/home/ubuntu/production/back-iagenerativa/chat/root/La_inteligencia_artificial.pdf')
+        texto3 = extract_text('/home/ubuntu/production/back-iagenerativa/chat/root/La_liebre_y_la_tortuga.pdf')
         question = request.data['question']
         payload = {
             "model": "gpt-3.5-turbo",
